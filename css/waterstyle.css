@@ -1,0 +1,69 @@
+#heading {
+  font-family: georgia;
+}
+#signForm {
+  width: 40em;
+  position: absolute;;
+}
+#comment {
+  width: 60em;
+}
+#find {
+  width: 70em;
+}
+#topnav {
+  border-radius: 0px !important;
+}
+#directory {
+  text-align: center;
+}
+header {
+  text-align: center;
+}
+
+/*footer {
+  position: fixed;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  background-color: #555;
+  color: white;
+}*/
+
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+.wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+	height: 155px; /* .push must be the same height as .footer */
+}
+
+.affix {
+      top: 0;
+      width: 100%;
+}
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+}
+
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      max-height: 55vh;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none;
+    }
+  }

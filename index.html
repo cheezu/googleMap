@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+	    <title>Simple Map</title>
+	    <meta name="viewport" content="initial-scale=1.0">
+	    <meta charset="utf-8">
+	    <link rel="stylesheet" href="css/bootstrap.min.css">
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			#mapsearch {
+				width: 300px;
+			}
+
+			#map-canvas{
+				/*height: 400px;
+				width: 400px;*/
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+
+<body>
+	<input type = "text" id = "mapsearch">
+	<div id="map-canvas"></div>
+
+	<script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDQfQaVwAMna1qhTywkRC_0lNbKhkHcXxE&libraries=places" type="text/javascript"></script>
+	<script>
+		var map = new google.maps.Map(document.getElementById('map-canvas'),{
+			center: {
+				lat: 3.1056135,
+				lng: 101.5932328
+			},
+			zoom: 15
+		});
+
+		var marker = new google.maps.Marker({
+			position:{
+				lat: 3.1056135,
+				lng: 101.5932328 
+			},
+			map: map,
+			draggable: true
+		})
+
+		var searchBox = new google.maps.places.SearchBox(document.getElementById('mapsearch'));
+
+		google.maps.event.addListener(searchBox, 'places_changed', function(){
+			var places = searchBox.getPlaces();
+			var bounds = new google.maps.LatLngBounds();
+			var i, place;
+			for(i=0; place=places[i]; i++){
+				bounds.extend(place.geometry.location);
+				marker.setPosition(place.geometry.location);
+			}
+			map.fitBounds(bounds);
+			map.setZoom(15);
+		})
+	</script>
+</body>
+</html>
